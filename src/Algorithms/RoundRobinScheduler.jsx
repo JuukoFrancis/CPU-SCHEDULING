@@ -69,7 +69,8 @@ const RoundRobinScheduler = () => {
       return acc;
     }, {});
     let maxValues = Object.values(groupedData).map((arr) => Math.max(...arr));
-    let avgWaitingTime = maxValues.reduce((sum, val) => sum + val, 0);
+    let avgWaitingTime =
+      maxValues.reduce((sum, val) => sum + val, 0) / maxValues.length;
 
     return { result, avgWaitingTime };
   };
