@@ -88,7 +88,9 @@ const RoundRobinScheduler = () => {
 
   function handleClearProcess() {
     setSchedule([]);
-    setAvgWaitingTime("");
+    setProcesses([]);
+    setFinalQuantum("");
+    setAvgWaitingTime(0);
   }
 
   return (
@@ -146,7 +148,7 @@ const RoundRobinScheduler = () => {
       </table>
       <div className="mt-4">
         <p className="text-lg font-medium text-blue-500">
-          Average Waiting Time: {avgWaitingTime.toFixed(2)}
+          Average Waiting Time: {`${Math.round(avgWaitingTime * 1000) / 1000}`}
         </p>
       </div>
 
