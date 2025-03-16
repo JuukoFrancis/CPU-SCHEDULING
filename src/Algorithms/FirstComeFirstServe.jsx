@@ -229,7 +229,11 @@ function FirstComeFirstServe() {
       </div>
 
       {processes.length > 0 && (
-        <TableProcess processes={processes} setProcesses={setProcesses} />
+        <TableProcess
+          processes={processes}
+          setProcesses={setProcesses}
+          setBurstInput={setBurstInput}
+        />
       )}
     </div>
   );
@@ -258,11 +262,12 @@ function AddProcess({ burstInput, setBurstInput, onAddProcess }) {
   );
 }
 
-function TableProcess({ processes, setProcesses }) {
+function TableProcess({ processes, setProcesses, setBurstInput }) {
   const [calculate, setCalculate] = useState(false);
 
   function handleClearProcess() {
     setProcesses([]);
+    setBurstInput("");
   }
 
   const averageWaitingTime =

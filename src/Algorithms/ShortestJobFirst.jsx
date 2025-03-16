@@ -73,6 +73,7 @@ function ShortestJobFirst() {
           setProcesses={setProcesses}
           calculate={calculate}
           handleRun={handleRun}
+          setBurstInput={setBurstInput}
         />
       )}
     </div>
@@ -103,9 +104,16 @@ function AddProcess({ burstInput, setBurstInput, onAddProcess }) {
   );
 }
 
-function TableProcess({ processes, setProcesses, calculate, handleRun }) {
+function TableProcess({
+  processes,
+  setProcesses,
+  calculate,
+  handleRun,
+  setBurstInput,
+}) {
   function handleClearProcess() {
     setProcesses([]);
+    setBurstInput("");
   }
 
   const averageWaitingTime =
